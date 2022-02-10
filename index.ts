@@ -26,3 +26,9 @@ const wonjuObj: { name: string; age: number } = {
 };
 
 const myBoolean: boolean = true;
+
+function sum(a: number, b: number): number {
+  return a + b;
+}
+
+// sum(1, 2, 3); // Error
