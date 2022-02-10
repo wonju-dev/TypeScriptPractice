@@ -69,3 +69,57 @@ const student1: Tstudent = getNewStudent(1, 'wonju');
 
 addStudent(student1);
 printStudentList();
+
+interface biMathFunc {
+  (a: number, b: number): number;
+}
+
+const sum: biMathFunc = (a: number, b: number) => a + b;
+const multiply: biMathFunc = (a: number, b: number) => a * b;
+
+sum(10, 20);
+multiply(10, 20);
+
+interface Person {
+  name: string;
+  age: number;
+}
+interface Developer {
+  name: string;
+  major: string;
+}
+
+function unionFunc(s: Person | Developer) {
+  console.log(s);
+}
+function intersactionFunc(s: Person & Developer) {
+  console.log(s);
+}
+
+unionFunc({ name: '1', age: 1, major: '1' });
+intersactionFunc({ name: '1', age: 1, major: '1' });
+// intersactionFunc({ name: '1', age: 1 });
+
+class MyClass {
+  // ES6와 달리, Class의 필드를 먼저 선언해줘야 한다
+  public name: string;
+
+  public id: number;
+
+  readonly CONST_NUMBER: number = 10;
+
+  private age: number;
+
+  constructor(id: number, name: string, age: number) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+  }
+
+  public getAge(): number {
+    return this.age;
+  }
+}
+
+const tmp: MyClass = new MyClass(1, '1', 1);
+console.log(tmp.getAge());

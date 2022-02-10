@@ -29,6 +29,53 @@ log(1, 2); // No Error
 log(1, 2, 3);
 // log(1,2,3,4) : Error
 var myAny = 10;
-console.log(myAny);
 myAny = 's';
-console.log(myAny);
+var studentList = [];
+var printStudentList = function () {
+    studentList.forEach(function (student) {
+        console.log(student);
+    });
+};
+var addStudent = function (newStudent) {
+    studentList.push(newStudent);
+};
+var getNewStudent = function (id, name) {
+    var newStudent = {
+        id: id,
+        name: name
+    };
+    return newStudent;
+};
+var student1 = getNewStudent(1, 'wonju');
+addStudent(student1);
+printStudentList();
+var sum = function (a, b) { return a + b; };
+var multiply = function (a, b) { return a * b; };
+sum(10, 20);
+multiply(10, 20);
+function unionFunc(s) {
+    console.log(s);
+}
+function intersactionFunc(s) {
+    console.log(s);
+}
+unionFunc({ name: '1', age: 1, major: '1' });
+intersactionFunc({ name: '1', age: 1, major: '1' });
+// intersactionFunc({ name: '1', age: 1 });
+var MyClass = /** @class */ (function () {
+    function MyClass(id, name, age) {
+        this.CONST_NUMBER = 10;
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+    MyClass.prototype.getAge = function () {
+        return this.age;
+    };
+    return MyClass;
+}());
+var tmp = new MyClass(1, '1', 1);
+console.log(tmp.CONST_NUMBER);
+console.log(tmp.name);
+console.log(tmp.id);
+console.log(tmp.getAge());
