@@ -27,8 +27,45 @@ const wonjuObj: { name: string; age: number } = {
 
 const myBoolean: boolean = true;
 
-function sum(a: number, b: number): number {
-  return a + b;
+function log(a: number, b: number, c?: number): void {
+  console.log(a);
+  console.log(b);
+  console.log(c);
 }
 
-// sum(1, 2, 3); // Error
+log(1, 2); // No Error
+log(1, 2, 3);
+// log(1,2,3,4) : Error
+
+let myAny: any = 10;
+myAny = 's';
+
+type Tstudent = {
+  id: number;
+  name: string;
+};
+
+const studentList: Tstudent[] = [];
+
+const printStudentList = (): void => {
+  studentList.forEach((student) => {
+    console.log(student);
+  });
+};
+
+const addStudent = (newStudent: Tstudent): void => {
+  studentList.push(newStudent);
+};
+
+const getNewStudent = (id: number, name: string): Tstudent => {
+  const newStudent: Tstudent = {
+    id,
+    name,
+  };
+  return newStudent;
+};
+
+const student1: Tstudent = getNewStudent(1, 'wonju');
+
+addStudent(student1);
+printStudentList();
